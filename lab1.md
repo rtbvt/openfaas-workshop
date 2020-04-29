@@ -244,19 +244,19 @@ Kiểm tra gateway có sẵn sàng không
 kubectl rollout status -n openfaas deploy/gateway
 ```
 
-Thực hiện lệnh sau để forward ra trình duyệt
+> Thực hiện forward để truy cập Gateway qua cổng 8080 với tham số `&` để chạy nền
 
 ```
-kubectl port-forward svc/gateway -n openfaas 8080:8080
+kubectl port-forward -n openfaas svc/gateway 8080:8080 &
 ```
 
 URL gateway: `http://127.0.0.1:8080`
 
-> Lưu URL vào `~/.bashrc` hoặc `~/.bash_profile`
+> Chỉnh sửa `~/.bashrc` hoặc `~/.bash_profile`
 
 ```
 # Populate as above
-export OPENFAAS_URL=""
+export OPENFAAS_URL="http://127.0.0.1:8080"
 ```
 
 Lấy mật khẩu đăng nhập Gateway
